@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Router, Switch } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { createBrowserHistory } from "history";
 
-function App() {
+// Styles
+import { AppTheme } from "./styles/theme";
+import LoginView from "./views/Login";
+
+/**
+ * Create browser history
+ */
+const browserHistory = createBrowserHistory();
+
+/**
+ * Application root component
+ */
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="application">
+      <ThemeProvider theme={AppTheme}>
+        <Router history={browserHistory}>
+          <Switch>
+            <Route path="/" exact component={LoginView} />
+          </Switch>
+        </Router>
+      </ThemeProvider>
     </div>
   );
-}
+};
 
 export default App;
