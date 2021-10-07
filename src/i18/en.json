@@ -1,0 +1,7 @@
+{
+  "email": "Email",
+  "password": "Password",
+  "login": "Login",
+  "register": "Register",
+  "welcome": "Please sign in with your email and password\nOr register as a new user"
+}
