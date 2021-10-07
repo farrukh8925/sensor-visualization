@@ -2,10 +2,17 @@ import React from "react";
 import { Route, Router, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { createBrowserHistory } from "history";
+import { IntlProvider } from "react-intl";
+
+// Views
+import LoginView from "./views/Login";
+import DashboardView from "./views/Dashboard";
+
+// Translations
+import en from "./i18/en.json";
 
 // Styles
 import { AppTheme } from "./styles/theme";
-import LoginView from "./views/Login";
 
 /**
  * Create browser history
@@ -18,13 +25,16 @@ const browserHistory = createBrowserHistory();
 const App: React.FC = () => {
   return (
     <div className="application">
-      <ThemeProvider theme={AppTheme}>
-        <Router history={browserHistory}>
-          <Switch>
-            <Route path="/" exact component={LoginView} />
-          </Switch>
-        </Router>
-      </ThemeProvider>
+      <IntlProvider messages={en} locale="en">
+        <ThemeProvider theme={AppTheme}>
+          <Router history={browserHistory}>
+            <Switch>
+              <Route path="/" exact component={LoginView} />
+              <Route path="/dashboard" component={DashboardView} />
+            </Switch>
+          </Router>
+        </ThemeProvider>
+      </IntlProvider>
     </div>
   );
 };
