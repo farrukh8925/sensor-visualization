@@ -20,5 +20,6 @@ export const StyledInputContainer = styled.div`
     border-radius: ${(props) => props.theme.layout.borderRadius};
     box-sizing: border-box;
     margin-bottom: ${(props) => props.theme.layout.marginLarge};
+    padding: 0px ${(props) => props.theme.layout.padding};
   }
 `;

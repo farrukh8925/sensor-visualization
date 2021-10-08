@@ -1,18 +1,30 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 import { StyledInputContainer } from "./style";
 
 type InputTextProps = {
   label?: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  inputType: "text" | "password" | "email";
+  value?: string;
 };
 
 /**
  * Custom input text component.
  */
-const InputText: React.FC<InputTextProps> = ({ label }) => {
+const InputText: React.FC<InputTextProps> = ({
+  label,
+  onChange: handleInputChange,
+  inputType,
+  value,
+}) => {
   return (
     <StyledInputContainer>
       {label && <label>{label}</label>}
-      <input type="text"></input>
+      <input
+        type={inputType}
+        onChange={handleInputChange}
+        value={value}
+      ></input>
     </StyledInputContainer>
   );
 };
