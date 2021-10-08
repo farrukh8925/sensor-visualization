@@ -12,6 +12,8 @@ export type AppTheme = {
   inputBorderColor: string;
   colorAccent: string;
   colorAccentFont: string;
+  colorSuccess: string;
+  colorError: string;
   layout: {
     padding: string;
     paddingLarge: string;

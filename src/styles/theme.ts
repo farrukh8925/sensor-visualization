@@ -16,6 +16,8 @@ export const AppTheme: AppThemeType = {
   inputBorderColor: "#588089",
   colorAccent: "#007fa3",
   colorAccentFont: "#ffffff",
+  colorSuccess: "#28a745",
+  colorError: "#dc3545",
   layout: {
     padding: "8px",
     paddingLarge: "16px",

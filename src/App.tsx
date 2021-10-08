@@ -7,6 +7,7 @@ import { IntlProvider } from "react-intl";
 // Views
 import LoginView from "./views/Login";
 import DashboardView from "./views/Dashboard";
+import NotificationProvider from "./providers/notification.provider";
 
 // Translations
 import en from "./i18/en.json";
@@ -27,12 +28,14 @@ const App: React.FC = () => {
     <div className="application">
       <IntlProvider messages={en} locale="en">
         <ThemeProvider theme={AppTheme}>
-          <Router history={browserHistory}>
-            <Switch>
-              <Route path="/" exact component={LoginView} />
-              <Route path="/dashboard" component={DashboardView} />
-            </Switch>
-          </Router>
+          <NotificationProvider>
+            <Router history={browserHistory}>
+              <Switch>
+                <Route path="/" exact component={LoginView} />
+                <Route path="/dashboard" component={DashboardView} />
+              </Switch>
+            </Router>
+          </NotificationProvider>
         </ThemeProvider>
       </IntlProvider>
     </div>

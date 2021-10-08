@@ -3,5 +3,7 @@
   "password": "Password",
   "login": "Login",
   "register": "Register",
-  "welcome": "Please sign in with your email and password\nOr register as a new user"
+  "welcome": "Please sign in with your email and password\nOr register as a new user",
+  "loginSuccess": "Successfully logged in",
+  "login401": "Invalid username or password, if you haven't registered yet, enter email and password and press register"
 }
