@@ -65,6 +65,7 @@ const LoginView: React.FC = () => {
     event.preventDefault();
     loginSignup(email, password, "login")
       .then(() => {
+        push("/dashboard");
         notificationContext.addNotification({
           message: t({ id: "loginSuccess" }),
           type: "success",

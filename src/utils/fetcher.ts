@@ -58,3 +58,17 @@ export const get = async (
     return Promise.reject();
   }
 };
+
+/**
+ * Getting data from our middleware
+ */
+export const getHistory = (): Promise<AxiosResponse<never>> => {
+  return axios
+    .get("http://localhost:8000/api/v1/history")
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error: AxiosError) => {
+      throw new Error(error.message);
+    });
+};

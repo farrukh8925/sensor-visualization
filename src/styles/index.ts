@@ -13,4 +13,10 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
     display: flex;
   }
+
+  h1 {
+    font-family: Merriweather,Sans-Serif;
+    font-size: 42px;
+    color: #003e51;
+  }
 `;
