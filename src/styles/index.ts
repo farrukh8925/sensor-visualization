@@ -21,6 +21,13 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: 8px;
   }
 
+  h2 {
+    font-family: Merriweather,Sans-Serif;
+    font-size: 32px;
+    color: #007fa3;
+    margin-bottom: 8px;
+  }
+
   h3 {
     font-family: Merriweather,Sans-Serif;
     font-size: 16px;

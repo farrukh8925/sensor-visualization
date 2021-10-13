@@ -1,4 +1,4 @@
-import { SensorDataSet } from "../types/sensor.data";
+import { SensorDataSet, SensorStatisticsData } from "../types/sensor.data";
 
 /**
  * Normalize chart data for the hours in a day
@@ -22,4 +22,46 @@ export const formDataSet = (sensorData: SensorDataSet[]): SensorDataSet[] => {
   });
 
   return dataSet as SensorDataSet[];
+};
+
+/**
+ * Get maximum value from the sensor
+ */
+export const getStatistics = (
+  sensorData: SensorDataSet[]
+): SensorStatisticsData => {
+  const sensorStatistics: SensorStatisticsData = sensorData.reduce(
+    (prevValue, currValue) => {
+      const restData: Record<string, any> = currValue;
+
+      Object.keys(currValue).forEach((key) => {
+        if (key.includes("sensor")) {
+          /** First check the max value */
+          if (
+            restData[key] > prevValue.maxValue &&
+            restData[key] > prevValue.minValue
+          ) {
+            prevValue.maxValue = restData[key];
+            prevValue.maxValueDevice = key;
+          } else if (
+            restData[key] <= prevValue.minValue &&
+            restData[key] < prevValue.maxValue
+          ) {
+            prevValue.minValue = restData[key];
+            prevValue.minValueDevice = key;
+          }
+        }
+      });
+
+      return prevValue;
+    },
+    {
+      maxValue: 0,
+      minValue: 0,
+      maxValueDevice: "N/A",
+      minValueDevice: "N/A",
+    }
+  );
+
+  return sensorStatistics;
 };

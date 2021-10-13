@@ -11,6 +11,7 @@ import LineChart from "./LineChart";
 import Tabular from "./Tabular";
 
 import { HeadingDropdown, InformationRow, StyledContent } from "./style";
+import Statistics from "../Statistics";
 
 /**
  * Dashboard content
@@ -87,6 +88,7 @@ const Content: React.FC = () => {
       <div className="chart-container" ref={divRef}>
         {dimensions.width && dataSet && renderChart()}
       </div>
+      <Statistics />
     </StyledContent>
   );
 };

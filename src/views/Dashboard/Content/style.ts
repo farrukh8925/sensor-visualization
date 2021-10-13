@@ -4,9 +4,12 @@ export const StyledContent = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: ${(props) => props.theme.layout.paddingLarge};
   box-sizing: border-box;
   height: 100%;
+
+  & .chart-container {
+    margin-bottom: ${(props) => props.theme.layout.marginXl};
+  }
 `;
 
 export const HeadingDropdown = styled.div`
@@ -15,6 +18,8 @@ export const HeadingDropdown = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: ${(props) => props.theme.layout.paddingLarge};
+  box-sizing: border-box;
 `;
 
 export const InformationRow = styled.div`
@@ -23,6 +28,8 @@ export const InformationRow = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  padding: ${(props) => props.theme.layout.paddingLarge};
+  box-sizing: border-box;
   margin-bottom: ${(props) => props.theme.layout.marginXl};
   & span {
     color: ${(props) => props.theme.textColorLabel};

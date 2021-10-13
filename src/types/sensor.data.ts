@@ -12,3 +12,10 @@ export type SensorContextState = {
   addData: (data: SensorDataSet) => void;
   dataSet: SensorDataSet[];
 };
+
+export type SensorStatisticsData = {
+  maxValue: Number;
+  minValue: Number;
+  maxValueDevice: String;
+  minValueDevice: String;
+};

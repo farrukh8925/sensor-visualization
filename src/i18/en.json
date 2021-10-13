@@ -11,5 +11,9 @@
   "problemFetching": "There was an error retriving data from the server. Please try again later",
   "sensorStatistics": "Sensor Statistics (Temperature ?)",
   "sensorDescription": "Hourly reported statistics from the sensor visualized",
-  "loggedOut": "You have been successfully logged out"
+  "loggedOut": "You have been successfully logged out",
+  "max": "Maximum Value",
+  "min": "Minimum Value",
+  "avg": "Average Value",
+  "reportedBy": "Reported by: {device}"
 }
