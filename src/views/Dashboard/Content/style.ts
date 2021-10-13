@@ -16,3 +16,15 @@ export const HeadingDropdown = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+
+export const InformationRow = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: ${(props) => props.theme.layout.marginLarge};
+  & span {
+    color: ${(props) => props.theme.textColorLabel};
+  }
+`;

@@ -6,10 +6,8 @@ import { SensorDataSet } from "../types/sensor.data";
  * So, data representation will be hourly
  */
 export const formDataSet = (sensorData: SensorDataSet[]): SensorDataSet[] => {
-  const hours: number[] = Array.from(
-    { length: new Date().getHours() + 1 },
-    (_, i) => i
-  );
+  const hours: number[] = Array.from({ length: 24 }, (_, i) => i);
+
   const dataSet: any = hours.map((hour: number) => {
     if (sensorData.find((sensorDatum) => sensorDatum.hour === hour)) {
       return sensorData.find((sensorDatum) => sensorDatum.hour === hour);

@@ -6,6 +6,9 @@
   "welcome": "Please sign in with your email and password\nOr register as a new user",
   "loginSuccess": "Successfully logged in",
   "login401": "Invalid username or password, if you haven't registered yet, enter email and password and press register",
-  "welcomeMessage": "Welcome {email}",
-  "sensorReport": "Sensor Report"
+  "welcomeMessage": "Logged in as: {email}",
+  "sensorReport": "Sensor Report",
+  "problemFetching": "There was an error retriving data from the server. Please try again later",
+  "sensorStatistics": "Sensor Statistics (Temperature ?)",
+  "sensorDescription": "Hourly reported statistics from the sensor visualized"
 }
