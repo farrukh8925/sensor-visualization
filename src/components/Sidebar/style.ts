@@ -22,6 +22,10 @@ export const StyledSidebar = styled.aside`
     margin-bottom: ${(props) => props.theme.layout.margin};
     transition: 0.2s all ease-out;
 
+    &.selected {
+      color: white;
+    }
+
     &:hover {
       color: white;
     }
