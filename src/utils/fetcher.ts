@@ -7,6 +7,13 @@ const instance: AxiosInstance = axios.create({
   timeout: 2000,
 });
 
+const getBaseUrl = (): String => {
+  if (process.env.NODE_ENV === "production") {
+    return "http://65.108.84.146:8000/api/";
+  }
+  return "http://localhost:8000/api/";
+};
+
 /**
  * Export the register method
  * we will store the retrieved token in local storage
@@ -64,7 +71,7 @@ export const get = async (
  */
 export const getHistory = (): Promise<AxiosResponse<never>> => {
   return axios
-    .get("http://localhost:8000/api/v1/history")
+    .get(`${getBaseUrl()}v1/history`)
     .then((response) => {
       return response.data;
     })
