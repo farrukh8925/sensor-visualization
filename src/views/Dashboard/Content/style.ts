@@ -23,8 +23,31 @@ export const InformationRow = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  margin-bottom: ${(props) => props.theme.layout.marginLarge};
+  margin-bottom: ${(props) => props.theme.layout.marginXl};
   & span {
     color: ${(props) => props.theme.textColorLabel};
+  }
+`;
+
+export const StyledTable = styled.table`
+  width: 100%;
+
+  & th {
+    text-align: start;
+    background-color: ${(props) => props.theme.backgroundColorLight};
+    height: 34px;
+    padding: 0px ${(props) => props.theme.layout.padding};
+    box-sizing: border-box;
+    color: ${(props) => props.theme.headingColor};
+    font-family: Merriweather, Sans-Serif;
+  }
+
+  & td {
+    padding: 0px ${(props) => props.theme.layout.padding};
+    height: 28px;
+  }
+
+  & tr:nth-child(2n + 1) {
+    background-color: ${(props) => props.theme.backgroundColorLight};
   }
 `;

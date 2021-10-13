@@ -19,6 +19,7 @@ export type AppTheme = {
     paddingLarge: string;
     margin: string;
     marginLarge: string;
+    marginXl: string;
     borderRadius: string;
     inputHeight: string;
   };

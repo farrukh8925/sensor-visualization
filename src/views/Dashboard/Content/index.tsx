@@ -1,11 +1,14 @@
 import { AxiosError } from "axios";
 import React, { useContext, useRef, useState } from "react";
 import { IntlShape, useIntl } from "react-intl";
-import { BarChart, Bar, XAxis, YAxis, Legend, Tooltip } from "recharts";
+import { AppDataContext } from "../../../providers/appdata.provider";
 import { NotificationContext } from "../../../providers/notification.provider";
 import { SensorDataContext } from "../../../providers/sensordata.provider";
 import { SensorDataSet } from "../../../types/sensor.data";
 import { getHistory } from "../../../utils/fetcher";
+import BarChart from "./BarChart";
+import LineChart from "./LineChart";
+import Tabular from "./Tabular";
 
 import { HeadingDropdown, InformationRow, StyledContent } from "./style";
 
@@ -28,6 +31,7 @@ const Content: React.FC = () => {
   /** Use the context */
   const { addDataSet, dataSet } = useContext(SensorDataContext);
   const { addNotification } = useContext(NotificationContext);
+  const { selectedMode } = useContext(AppDataContext);
 
   React.useEffect(() => {
     getHistory()
@@ -52,6 +56,21 @@ const Content: React.FC = () => {
     }
   }, [dimensions.width]);
 
+  /** Render the chart based on selected mode */
+  const renderChart = () => {
+    const props = { dataSet, width: dimensions.width as number };
+    switch (selectedMode) {
+      case "barChart":
+        return <BarChart {...props} />;
+      case "lineChart":
+        return <LineChart {...props} />;
+      case "tabular":
+        return <Tabular {...props} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <StyledContent>
       <HeadingDropdown>
@@ -66,22 +85,7 @@ const Content: React.FC = () => {
         <span>{t({ id: "sensorDescription" })}</span>
       </InformationRow>
       <div className="chart-container" ref={divRef}>
-        {dimensions.width && (
-          <BarChart
-            width={dimensions.width as number}
-            height={600}
-            data={dataSet}
-          >
-            <XAxis dataKey="hour" />
-            <YAxis />
-            <Legend />
-            <Tooltip />
-            <Bar type="monotone" dataKey="sensor1" fill="#82ca9d" />
-            <Bar type="monotone" dataKey="sensor2" fill="#8884d8" />
-            <Bar type="monotone" dataKey="sensor3" fill="#007fa3" />
-            <Bar type="monotone" dataKey="sensor4" fill="#588089" />
-          </BarChart>
-        )}
+        {dimensions.width && dataSet && renderChart()}
       </div>
     </StyledContent>
   );

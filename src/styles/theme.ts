@@ -23,6 +23,7 @@ export const AppTheme: AppThemeType = {
     paddingLarge: "16px",
     margin: "8px",
     marginLarge: "16px",
+    marginXl: "32px",
     borderRadius: "4px",
     inputHeight: "44px",
   },
