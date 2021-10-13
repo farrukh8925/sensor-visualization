@@ -13,22 +13,24 @@ type TabularProps = {
 const Tabular: React.FC<TabularProps> = ({ width, dataSet }) => {
   return (
     <StyledTable>
-      <tr>
-        <th>Hour</th>
-        <th>Sensor1</th>
-        <th>Sensor1</th>
-        <th>Sensor3</th>
-        <th>Sensor4</th>
-      </tr>
-      {dataSet.map((datum: SensorDataSet) => (
+      <tbody>
         <tr>
-          <td>{datum.hour}</td>
-          <td>{datum.sensor1}</td>
-          <td>{datum.sensor2}</td>
-          <td>{datum.sensor3}</td>
-          <td>{datum.sensor4}</td>
+          <th>Hour</th>
+          <th>Sensor1</th>
+          <th>Sensor1</th>
+          <th>Sensor3</th>
+          <th>Sensor4</th>
         </tr>
-      ))}
+        {dataSet.map((datum: SensorDataSet) => (
+          <tr key={`row-${datum.hour}-${datum.date}`}>
+            <td>{datum.hour}</td>
+            <td>{datum.sensor1}</td>
+            <td>{datum.sensor2}</td>
+            <td>{datum.sensor3}</td>
+            <td>{datum.sensor4}</td>
+          </tr>
+        ))}
+      </tbody>
     </StyledTable>
   );
 };

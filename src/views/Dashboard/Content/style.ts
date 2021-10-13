@@ -43,14 +43,14 @@ export const StyledTable = styled.table`
     text-align: start;
     background-color: ${(props) => props.theme.backgroundColorLight};
     height: 34px;
-    padding: 0px ${(props) => props.theme.layout.padding};
+    padding: 0px ${(props) => props.theme.layout.paddingLarge};
     box-sizing: border-box;
     color: ${(props) => props.theme.headingColor};
     font-family: Merriweather, Sans-Serif;
   }
 
   & td {
-    padding: 0px ${(props) => props.theme.layout.padding};
+    padding: 0px ${(props) => props.theme.layout.paddingLarge};
     height: 28px;
   }
 

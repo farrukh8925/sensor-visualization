@@ -1,5 +1,6 @@
 import { AxiosError } from "axios";
 import React, { useContext, useRef, useState } from "react";
+import { getUnixTime } from "date-fns";
 import { IntlShape, useIntl } from "react-intl";
 import { AppDataContext } from "../../../providers/appdata.provider";
 import { NotificationContext } from "../../../providers/notification.provider";
@@ -33,10 +34,10 @@ const Content: React.FC = () => {
   /** Use the context */
   const { addDataSet, dataSet } = useContext(SensorDataContext);
   const { addNotification } = useContext(NotificationContext);
-  const { selectedMode } = useContext(AppDataContext);
+  const { selectedMode, selectedDate } = useContext(AppDataContext);
 
   React.useEffect(() => {
-    getHistory()
+    getHistory(getUnixTime(selectedDate))
       .then((response: any) => {
         addDataSet(response as SensorDataSet[]);
       })
@@ -46,7 +47,7 @@ const Content: React.FC = () => {
           type: "error",
         });
       });
-  }, []);
+  }, [selectedDate]);
 
   /** Use layout effect hook to determine the dimensions */
   React.useLayoutEffect(() => {

@@ -66,9 +66,9 @@ export const get = async (
 /**
  * Getting data from our middleware
  */
-export const getHistory = (): Promise<AxiosResponse<never>> => {
+export const getHistory = (date?: Number): Promise<AxiosResponse<never>> => {
   return instance
-    .get(API_ROUTES.history)
+    .get(`${API_ROUTES.history}?date=${date || new Date().valueOf()}`)
     .then((response) => {
       return response.data;
     })
