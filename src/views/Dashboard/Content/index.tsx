@@ -12,6 +12,7 @@ import Tabular from "./Tabular";
 
 import { HeadingDropdown, InformationRow, StyledContent } from "./style";
 import Statistics from "../Statistics";
+import TimeRange from "../../../components/TimeRange";
 
 /**
  * Dashboard content
@@ -76,10 +77,7 @@ const Content: React.FC = () => {
     <StyledContent>
       <HeadingDropdown>
         <h1>{t({ id: "sensorReport" })}</h1>
-        <select className="select-day" name="day" id="day">
-          <option value="Today">Today</option>
-          <option value="Yesterday">Yesterday</option>
-        </select>
+        <TimeRange />
       </HeadingDropdown>
       <InformationRow>
         <h3>{t({ id: "sensorStatistics" })}</h3>

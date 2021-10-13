@@ -7,6 +7,8 @@ import { AppDataContextState } from "../types/appdata.context.state";
 const contextDefault: AppDataContextState = {
   selectedMode: "barChart",
   setSelectedMode: (mode = "barChart") => {},
+  selectedDate: new Date(),
+  setSelectedDate: (date = new Date()) => {},
 };
 
 /**
@@ -25,6 +27,8 @@ const AppDataProvider: React.FC = ({ children }) => {
     "barChart"
   );
 
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+
   /**
    * Method to add notification
    */
@@ -32,9 +36,21 @@ const AppDataProvider: React.FC = ({ children }) => {
     setMode(mode);
   };
 
+  /**
+   * Method to change selected date
+   */
+  const handleSetSelectedDate = (date: Date) => {
+    setSelectedDate(date);
+  };
+
   return (
     <AppDataContext.Provider
-      value={{ setSelectedMode: handleSetMode, selectedMode: mode }}
+      value={{
+        setSelectedMode: handleSetMode,
+        selectedMode: mode,
+        selectedDate,
+        setSelectedDate: handleSetSelectedDate,
+      }}
     >
       {children}
     </AppDataContext.Provider>

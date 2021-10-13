@@ -2,17 +2,14 @@ import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 import { API_ROUTES } from "../constants/apiConfig";
 import { APP_DEF } from "../constants/appConfig";
 
+const getBaseUrl = (): string => {
+  return `${window.location.protocol}//${window.location.hostname}:8080/api/v1/`;
+};
+
 const instance: AxiosInstance = axios.create({
-  baseURL: API_ROUTES.baseUrl,
+  baseURL: getBaseUrl(),
   timeout: 2000,
 });
-
-const getBaseUrl = (): String => {
-  if (process.env.NODE_ENV === "production") {
-    return "http://65.108.84.146:8000/api/";
-  }
-  return "http://localhost:8000/api/";
-};
 
 /**
  * Export the register method
@@ -70,8 +67,8 @@ export const get = async (
  * Getting data from our middleware
  */
 export const getHistory = (): Promise<AxiosResponse<never>> => {
-  return axios
-    .get(`${getBaseUrl()}v1/history`)
+  return instance
+    .get(API_ROUTES.history)
     .then((response) => {
       return response.data;
     })

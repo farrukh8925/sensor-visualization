@@ -6,9 +6,11 @@ export const API_ROUTES: {
   register: string;
   login: string;
   events: string;
+  history: string;
 } = {
   baseUrl: "https://opendata.hopefully.works/api",
-  register: "/signup",
-  login: "/login",
+  register: "/user/signup",
+  login: "/user/login",
   events: "/events",
+  history: "/sensor/history",
 };
