@@ -5,7 +5,6 @@ import { createBrowserHistory } from "history";
 import { IntlProvider } from "react-intl";
 
 // Views
-import LoginView from "./views/Login";
 import DashboardView from "./views/Dashboard";
 import NotificationProvider from "./providers/notification.provider";
 import SensorDataProvider from "./providers/sensordata.provider";
@@ -35,8 +34,7 @@ const App: React.FC = () => {
               <SensorDataProvider>
                 <Router history={browserHistory}>
                   <Switch>
-                    <Route path="/" exact component={LoginView} />
-                    <Route path="/dashboard" component={DashboardView} />
+                    <Route path="/" component={DashboardView} />
                   </Switch>
                 </Router>
               </SensorDataProvider>
