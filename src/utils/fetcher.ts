@@ -3,7 +3,7 @@ import { API_ROUTES } from "../constants/apiConfig";
 import { APP_DEF } from "../constants/appConfig";
 
 const getBaseUrl = (): string => {
-  return `${window.location.protocol}//${window.location.hostname}:8080/api/v1/`;
+  return `${window.location.protocol}//${window.location.hostname}:8000/api/v1/`;
 };
 
 const instance: AxiosInstance = axios.create({
