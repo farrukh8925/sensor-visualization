@@ -40,6 +40,7 @@ export const loginSignup = (
       }
     })
     .catch((error: AxiosError) => {
+      console.log(error);
       return Promise.reject(error);
     });
 };

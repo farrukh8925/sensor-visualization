@@ -79,6 +79,26 @@ const LoginView: React.FC = () => {
       });
   };
 
+  /**
+   * Handle registeration
+   */
+  const handleRegisteration = () => {
+    loginSignup(email, password, "register")
+      .then(() => {
+        push("/dashboard");
+        notificationContext.addNotification({
+          message: t({ id: "loginSuccess" }),
+          type: "success",
+        });
+      })
+      .catch((error: AxiosError) => {
+        notificationContext.addNotification({
+          message: t({ id: "login401" }),
+          type: "error",
+        });
+      });
+  };
+
   return (
     <StyledLoginContainer>
       <Card>
@@ -108,6 +128,7 @@ const LoginView: React.FC = () => {
         <Button
           type="button"
           presentation="secondary"
+          onClick={handleRegisteration}
           text={t({ id: "register" })}
         />
       </Card>
